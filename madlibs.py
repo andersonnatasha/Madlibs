@@ -42,6 +42,25 @@ def greet_person():
                            compliment=compliment)
 
 
+@app.route('/game')
+def show_madlib_form():0
+    """Get user response to game_play question"""
+
+    render_template("compliment.html",
+                    is_playing=game_play)
+
+    if is_playing == "No":
+        return render_template("goodbye.html")
+    else:
+        return render_template("game.html")
+        
+    #pull in compleiment.html -- > get userinput
+    #conditional statement: if yes
+    #   route to game.html 
+    #   goes to page /madlib
+    #condiional: if no
+    #   route to goodbye.html 
+
 if __name__ == '__main__':
     # Setting debug=True gives us error messages in the browser and also
     # "reloads" our web app if we change the code.
