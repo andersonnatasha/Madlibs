@@ -46,13 +46,16 @@ def greet_person():
 def show_madlib_form():
     """Get user response to game_play question"""
 
-    render_template("compliment.html",
-                    is_playing=game_play)
+    is_playing = request.args.get("gameplay")
 
-    if is_playing == "No":
+    if is_playing == "no":
         return render_template("goodbye.html")
     else:
         return render_template("game.html")
+
+    # render_template("compliment.html",
+    #                 is_playing="gameplay")
+
         
     #pull in compleiment.html -- > get userinput
     #conditional statement: if yes
@@ -60,6 +63,10 @@ def show_madlib_form():
     #   goes to page /madlib
     #condiional: if no
     #   route to goodbye.html 
+
+@app.route('/madlib')
+def show_madlib():
+    return render_template("game.html")
 
 if __name__ == '__main__':
     # Setting debug=True gives us error messages in the browser and also
