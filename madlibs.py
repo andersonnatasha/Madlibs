@@ -43,7 +43,7 @@ def greet_person():
 
 
 @app.route('/game')
-def show_madlib_form():0
+def show_madlib_form():
     """Get user response to game_play question"""
 
     render_template("compliment.html",
